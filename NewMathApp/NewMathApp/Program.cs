@@ -1,4 +1,6 @@
 ﻿using System;
+using static NewMathApp.NewMath;
+using static NewMathApp.Utils;
 
 namespace NewMathApp
 {
@@ -6,42 +8,156 @@ namespace NewMathApp
     {
         public static void Main(string[] args)
         {
+
+            
             Console.WriteLine("How can i help you ? \n");
         
             Console.WriteLine(@"< Press 1 > to find MINIMUM between two values");
             Console.WriteLine(@"< Press 2 > to find MAXIMUM between two values");
             Console.WriteLine(@"< Press 3 > to find FACTORIAL of the value");
             Console.WriteLine(@"< Press 4 > to  SORT the array");
-        
+            
         
             int choise = int.Parse(Console.ReadLine());
-    
+            
         
             switch (choise)
             {
                 case 1:
                     Console.WriteLine("Can you input two values to find the minimum? ");
-                    float minV1 = float.Parse(Console.ReadLine());
-                    float minV2 = float.Parse(Console.ReadLine());
-                    NewMath.Min(minV1, minV2);
+
+                    string input1, input2;
+                    float num1, num2;
+                    bool isNum1 = false, isNum2 = false;
+
+                    while (true)
+                    {
+                        Console.Write("Input a number 1 : ");
+                        input1 = Console.ReadLine();
+                        Console.Write("Input a number 2 : ");
+                        input2 = Console.ReadLine();
+                        
+                        //Are inputs number or not? 
+
+                        if (float.TryParse(input1, out num1) && float.TryParse(input2, out num2))
+                        {
+                            isNum1 = true;
+                            isNum2 = true; 
+                            NewMath.Min(num1, num2);
+                            
+                            Console.WriteLine("If you want to try again please click any button.");
+                            Console.WriteLine("@@@@@@");
+                            Console.WriteLine("If you want to exit please click 'Q'.");
+                            string answer = Console.ReadLine();
+                            if (answer.ToLower() == "q")
+                            {
+                                Console.WriteLine("....SEE YOU MATE! WE'RE ALWAYS WITH YOU.");
+                                return;
+                            }
+                        }
+                        else {
+                            Console.WriteLine("Wrong Input! Please input a number.");
+                            Console.Write("Tab any button to try again, if you want to exit tab 'Q': ");
+                            string answer = Console.ReadLine();
+                            if (answer.ToLower() == "q")
+                                 {
+                                    Console.WriteLine("....SEE YOU MATE! WE'RE ALWAYS WITH YOU.");
+                                    return;
+                                }
+                        }
+                        
+                    }
+                    
                     break;
                 case 2:
                     Console.WriteLine("Can you input two values to find the maximum? ");
-                    float maxV1 = float.Parse(Console.ReadLine());
-                    float maxV2 = float.Parse(Console.ReadLine());
-                    NewMath.Max(maxV1, maxV2);
+
+                    string input1max, input2max;
+                    float num1max, num2max;
+                    bool isNum1max = false, isNum2max = false;
+
+                    while (true)
+                    {
+                        Console.Write("Input a number 1 : ");
+                        input1max = Console.ReadLine();
+                        Console.Write("Input a number 2 : ");
+                        input2max = Console.ReadLine();
+                        
+                        //Are inputs number or not? 
+
+                        if (float.TryParse(input1max, out num1max) && float.TryParse(input2max, out num2max))
+                        {
+                            isNum1max = true;
+                            isNum2max = true; 
+                            NewMath.Max(num1max, num2max);
+                            
+                            Console.WriteLine("If you want to try again please click any button.");
+                            Console.WriteLine("@@@@@@");
+                            Console.WriteLine("If you want to exit please click 'Q'.");
+                            
+                            string answer = Console.ReadLine();
+                            if (answer.ToLower() == "q") {
+                                Console.WriteLine("....SEE YOU MATE! WE'RE ALWAYS WITH YOU.");
+                                return;
+                            }
+                        }
+                        else {
+                            Console.WriteLine("Wrong Input! Please input a number.");
+                            Console.Write("Tab any button to try again, if you want to exit tab 'Q': ");
+                            string answer = Console.ReadLine();
+                            if (answer.ToLower() == "q") {
+                                Console.WriteLine("....SEE YOU MATE! WE'RE ALWAYS WITH YOU.");
+                                return;
+                            }   
+                        }
+                        
+                    }
                     break;
                 case 3:
-                    Console.WriteLine("Can you input a value to find the factorial? ");
-                    int value = int.Parse(Console.ReadLine());
-                    NewMath.Factorial(value);
+                    
+                    string inputFactoriel;
+                    bool isFactoriel = false;
+
+                    while (true)
+                    {
+                        Console.WriteLine("Can you input a value to find the factorial? ");
+                        inputFactoriel = Console.ReadLine();
+                        
+                        if (int.TryParse(inputFactoriel, out int value))
+                        {
+                            isFactoriel = true;
+                            NewMath.Factorial(value);
+                            
+                            Console.WriteLine("If you want to try again please click any button.");
+                            Console.WriteLine("@@@@@@");
+                            Console.WriteLine("If you want to exit please click 'Q'.");
+                            
+                            string answer = Console.ReadLine();
+                            if (answer.ToLower() == "q") {
+                                Console.WriteLine("....SEE YOU MATE! WE'RE ALWAYS WITH YOU.");
+                                return;
+                            }
+                            
+
+                        }
+                        else
+                        {
+                            Console.WriteLine("Wrong Input! Please input a integer.");
+                            Console.Write("Tab any button to try again, if you want to exit tab 'Q': ");
+                            string answer = Console.ReadLine();
+                            if (answer.ToLower() == "q") {
+                                return;
+                            }  
+                        }
+                    }
+                   
+                    
+                    //NewMath.Factorial(value);
                     break;
                 case 4:
                     Console.WriteLine("Can you input a number array separated  with comma? ");
-                    string input = Console.ReadLine();
-                    string[] numbers = input.Split(',');
-                    float[] nums = Array.ConvertAll(numbers, float.Parse);
-                    
+                    float[] result = GetNumericArrayFromUserInput();
+
                     Console.WriteLine(@"< Press 1 > to sort the array smallest to largest ");
                     Console.WriteLine(@"< Press 2 > to sort the array largest to smallest ");
                     
@@ -50,86 +166,21 @@ namespace NewMathApp
                     switch (sortType)
                     {
                         case 1:
-                            var sortedArray1 = NewMath.SortArray(nums, true);
+                            var sortedArray1 = NewMath.SortArray(result, true);
                             string result1 = string.Join(",", sortedArray1);
-                            Console.WriteLine("Sorted array is => " + result1);
-                            break; 
+                            Console.WriteLine("Sorted array is => " + "[ "+result1+" ]");
+                            break;
                         case 2:
-                            var sortedArray2 = NewMath.SortArray(nums, false);
+                            var sortedArray2 = NewMath.SortArray(result, true);
                             string result2 = string.Join(",", sortedArray2);
-                            Console.WriteLine("Sorted array is => " + result2);
+                            Console.WriteLine("Sorted array is => " + "[ "+result2+" ]");
                             break;
                     }
-                    
+
                     break;
             }
     
         }
     }
     
-    
-    
-    
-     class NewMath
-            {
-                public static void Min(float a, float b)
-                {
-                    var isEqual = (a == b);
-                    if (!isEqual)
-                    {
-                        var minValue = (a < b) ? a : b; 
-                        Console.WriteLine(":= MINIMUM VALUE is : " + minValue);
-                    }
-                    else 
-                        Console.WriteLine("Same values");
-                }
-
-                public static void Max(float a, float b)
-                {
-                    var isEqual = (a == b);
-                    if (!isEqual)
-                    {
-                        var maxValue = (a > b) ? a : b; 
-                        Console.WriteLine(":= MAXIMUM VALUE is : " + maxValue);
-                    }
-                    else 
-                        Console.WriteLine("Same values");
-                }
-
-                public static void Factorial(int value)
-                {
-                    
-                    var result = 1;
-                    
-                    var isNegative = (value < 0); 
-                    
-                    if (isNegative)  
-                        Console.WriteLine("The value " + value + " must be larger than 0 to calculate factorial.");
-                    else
-                    {
-                        if (value == 0) 
-                            Console.WriteLine(value+"! is equal to " + result);
-                        else
-                        {
-                            for (int i = 1; i <= value; i++)
-                            {
-                                result *= i;
-                            }
-                            Console.WriteLine(value+"! is equal to " + result);
-                        }
-                    } 
-                }
-                public static float[] SortArray(float[] arr, bool isIncrease)
-                {
-                    if (isIncrease)
-                        Array.Sort(arr);
-                    else
-                    {
-                        Array.Sort(arr);
-                        Array.Reverse(arr);
-                    }
-                    return arr;
-                }
-                
-            }
 }

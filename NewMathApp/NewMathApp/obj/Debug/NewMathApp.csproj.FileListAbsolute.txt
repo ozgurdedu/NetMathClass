@@ -5,3 +5,10 @@ C:\Users\dursu\Desktop\NewMathApp\NewMathApp\obj\Debug\NewMathApp.csproj.Suggest
 C:\Users\dursu\Desktop\NewMathApp\NewMathApp\obj\Debug\NewMathApp.csproj.CoreCompileInputs.cache
 C:\Users\dursu\Desktop\NewMathApp\NewMathApp\obj\Debug\NewMathApp.exe
 C:\Users\dursu\Desktop\NewMathApp\NewMathApp\obj\Debug\NewMathApp.pdb
+C:\Users\dursu\Desktop\NetMathClass\NewMathApp\NewMathApp\bin\Debug\NewMathApp.exe
+C:\Users\dursu\Desktop\NetMathClass\NewMathApp\NewMathApp\bin\Debug\NewMathApp.pdb
+C:\Users\dursu\Desktop\NetMathClass\NewMathApp\NewMathApp\obj\Debug\NewMathApp.csproj.AssemblyReference.cache
+C:\Users\dursu\Desktop\NetMathClass\NewMathApp\NewMathApp\obj\Debug\NewMathApp.csproj.SuggestedBindingRedirects.cache
+C:\Users\dursu\Desktop\NetMathClass\NewMathApp\NewMathApp\obj\Debug\NewMathApp.csproj.CoreCompileInputs.cache
+C:\Users\dursu\Desktop\NetMathClass\NewMathApp\NewMathApp\obj\Debug\NewMathApp.exe
+C:\Users\dursu\Desktop\NetMathClass\NewMathApp\NewMathApp\obj\Debug\NewMathApp.pdb
